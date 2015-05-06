@@ -17,3 +17,4 @@ Roadmap
 * Ability to reset passwords
 * Get email reminders when deadline is coming up
 
+![Built by professionals](http://i.imgur.com/753R7ez.png)
