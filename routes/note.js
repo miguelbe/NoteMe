@@ -43,24 +43,6 @@ var deleteNote = function(req, res) {
         .then(function(note) {
             res.json({message: "Note destroyed"});
         })
-            
-    //    .catch(function(error) {
-    //        console.log(error);
-    //        res.send('Error destroying from DB');
-    //    })
-    //    console.log(req.session.User);
-    //    console.log(req.body.id);
-    //    res.json({});
-    //new Note().where('id', req.body.id)
-    //    .fetch()
-    //    .then(function(note) {
-    //        note.destroy();
-    //        res.json({message: "Note destroyed"});
-    //    }).catch(function(error) {
-    //        console.log(error);
-    //        res.send('Error retrieving from DB');
-    //    });
-    //new Note().where('id', req.body.id).fetch().destroy();
 };
 
 var getAllNotes = function(req, res) {
