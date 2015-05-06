@@ -1,12 +1,12 @@
+var app = require('../app');
+var bookshelf = app.get('bookshelf');
+var Note = require('./note');
+
 var User = bookshelf.Model.extend({
     tableName: 'Users',
-    notes: function() {
+    note: function() {
         return this.hasMany(Note);
     }
 });
 
-module.exports = function(app) {
-    User: User
-};
-
-
+module.exports = User;

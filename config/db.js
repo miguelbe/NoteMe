@@ -4,7 +4,7 @@ var DBConfig = {
         host: 'localhost',
         user: 'root',
         password: '',
-        databbase: 'NoteMe',
+        database: 'NoteMe',
         charset: 'utf8'
     }
 };

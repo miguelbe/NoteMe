@@ -1,5 +1,88 @@
-extends layout
+doctype html
+head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible",content="IE-edge")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    meta(name="description",content="Take awesome notes!")
+    meta(name="author",content="KiloStars")
+    meta(name="keywords",content="notes, project, take, tasks, notice me senpai")
+    link(rel="shortcut icon",href="/favicon.png")
 
-block content
-  h1= title
-  p Welcome to #{title}
+    title Note Me
+    
+    // Bootstrap core CSS
+    link(href="/stylesheets/bootstrap.css",rel="stylesheet")
+
+    // Custom styles for this template
+    link(href="/stylesheets/login.css",rel="stylesheet")
+    link(href="/stylesheets/main.css",rel="stylesheet")
+    link(href="/stylesheets/font-awesome.min.css",rel="stylesheet")
+    link(href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic",rel="stylesheet",type="text/css")
+    link(href="http://fonts.googleapis.com/css?family=Raleway:400,300,700",rel="stylesheet",type="text/css")
+
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    <!--[if lt IE 9]>
+    script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
+    script(src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js")
+    <![endif]-->
+   
+    script(src="/javascripts/modernizr.custom.js")
+    
+body
+    // MAIN IMAGE SECTION
+    if username
+        nav(class="menu",id="theMenu")
+            div(class="menu-wrap")
+                h1(class="logo") #[a(href="#home") Options]
+                i(class="fa fa-arrow-right menu-close")
+                p(id="allFilter",style="color: white;") Show all
+                p(id="pinkFilter",style="color #cf83ae;") Show Pink
+                p(id="greenFilter",style="color #83cfb9;") Show Green
+                p(id="violetFilter",style="color #8583cf;") Show Violet
+                input(id="search",type="text",placeholder="Search")
+                a(href="/logout") Log Out
+            div(id="menuToggle")
+                i(class="fa fa-bars")
+
+    div(id="headerwrap")
+        div(class="container")
+            div(class="row")
+                if username
+                    div(class="col-lg-8 col-lg-offset-2 col-md-8 col-lg-offset-2")
+                        img(src="/images/logo.png")
+                        input(id="content",type="text",name="noteContent",placeholder="Note content here")
+                        br
+                        p(id="chooseColor")
+                            button(value="pink",class="pink") Pink
+                            button(value="green",class="green") Green 
+                            button(value="violet",class="violet") Violet
+                        button(id="submit",onclick="addNote()") Submit
+                        ul
+                        script.
+                            getNotes();
+
+                else
+                    
+                    div(class="col-lg-8 col-lg-offset-2")
+                        img(src="/images/logo.png")
+                        br
+                        input(type="text",id="username",placeholder="Username")
+                        br
+                        input(type="password",id="password",placeholder="Password")
+                        br
+                        //input(type="submit",value="login",onclick="verifyUser()")
+                        input(type="submit",value="login",onclick="verifyUser()")
+                        br
+                        p(id="warning",style="display:none, color:red") Wrong username and password
+                        p Don't have an account yet? #[a(href="/signup") Sign up] now!
+    // Bootstrap core JavaScript
+    // ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src="https://code.jquery.com/jquery-1.10.2.min.js")
+    script(src="/javascripts/bootstrap.min.js")
+    script(src="/javascripts/main.js")
+    script(src="/javascripts/masonry.pkgd.min.js")
+    script(src="/javascripts/imagesloaded.js")
+    script(src="/javascripts/classie.js")
+    script(src="/javascripts/AnimOnScroll.js")
+
